@@ -1,0 +1,24 @@
+<ngb-carousel
+  #carousel
+  [showNavigationArrows]="showNavigationArrows"
+  [showNavigationIndicators]="showNavigationIndicators"
+>
+  <ng-template ngbSlide>
+    <div class="carousel-caption">
+      <h3>My slide 1 title</h3>
+    </div>
+    <a
+      href="https://www.google.fr/?q=Number+1"
+      target="_blank"
+      rel="nofollow noopener noreferrer"
+    >
+      <div class="picsum-img-wrapper">
+        <img [src]="images[0]" alt="My image 1 description" />
+      </div>
+    </a>
+  </ng-template>
+</ngb-carousel>
+
+<hr />
+
+<p>home works!</p>
