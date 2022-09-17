@@ -1,0 +1,29 @@
+.container {
+
+  .sistema {
+    font-size: 2rem;
+  }
+
+  .rol {
+    text-align: center;
+  }
+
+  .formula {
+    background-color: #E7E9EB;
+    padding: 2rem;
+
+    label,
+    input,
+    select {
+      font-size: 2rem;
+    }
+
+    button {
+      font-size: 1.5rem;
+    }
+  }
+
+  .fecha {
+    font-size: 2rem;
+  }
+}

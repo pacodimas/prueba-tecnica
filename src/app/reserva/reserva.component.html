@@ -1,1 +1,94 @@
-<p>reserva works!</p>
+<div class="container mt-5">
+  <div class="mt-4 p-5 rounded">
+    <h1 class="mb-3">Reserva</h1>
+    <p>Por favor llena el formulario para mostrar los datos</p>
+  </div>
+
+  <div class="formula">
+    <form
+      #formReserva="ngForm"
+      class="row g-3 needs-validation was-validated"
+      (ngSubmit)="open(contentForm)"
+    >
+      <div class="mb-3 mt-3">
+        <label for="date" class="form-label">Fecha:</label>
+        <input
+          type="date"
+          class="form-control"
+          name="date"
+          min="{{ fecha | date: 'yyyy-MM-dd' }}"
+          max="{{ fechaActual | date: 'yyyy-MM-dd' }}"
+          #date="ngModel"
+          [(ngModel)]="form.date"
+          required
+        />
+      </div>
+      <div class="mb-3 mt-3">
+        <label for="nombre" class="form-label">Nombre:</label>
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Introduzca su nombre"
+          name="nombre"
+          pattern="[a-zA-Z]+"
+          #nombre="ngModel"
+          [(ngModel)]="form.nombre"
+          required
+        />
+      </div>
+      <div class="mb-3 mt-3">
+        <label for="correo" class="form-label">Correo:</label>
+        <input
+          type="email"
+          class="form-control"
+          placeholder="Introduzca su correo"
+          name="correo"
+          #correo="ngModel"
+          [(ngModel)]="form.correo"
+          required
+        />
+      </div>
+      <div class="mb-3 mt-3">
+        <label for="nombre" class="form-label">Pais:</label>
+        <select
+          class="form-select"
+          name="pais"
+          #pais="ngModel"
+          [(ngModel)]="form.pais"
+          required
+        >
+          <option selected disabled value="">Pais</option>
+          <option *ngFor="let country of countries2" value="{{ country }}">
+            {{ country }}
+          </option>
+        </select>
+      </div>
+      <button
+        type="submit"
+        class="btn btn-primary"
+        [disabled]="!formReserva.form.valid"
+      >
+        Guardar
+      </button>
+    </form>
+  </div>
+</div>
+
+<ng-template #contentForm let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title h4" id="modal-basic-title">Datos del formulario</h4>
+    <button
+      type="button"
+      class="btn-close"
+      aria-label="Close"
+      (click)="modal.dismiss('Cross click')"
+    ></button>
+  </div>
+
+  <div class="modal-body">
+    <p><strong>Fecha: </strong>{{ form.date }}</p>
+    <p><strong>Nombre: </strong>{{ form.nombre }}</p>
+    <p><strong>Correo: </strong>{{ form.correo }}</p>
+    <p><strong>Pais: </strong>{{ form.pais }}</p>
+  </div>
+</ng-template>
