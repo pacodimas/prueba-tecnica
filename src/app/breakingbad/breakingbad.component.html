@@ -1,1 +1,32 @@
-<p>breakingbad works!</p>
+<div class="container mt-5">
+  <div class="mt-4 p-5 rounded">
+    <h1 class="mb-3">Breaking Bad Api</h1>
+    <p>
+      En esta vista se mostrara información sobre los autores de breaking bad
+    </p>
+    <div class="card" style="width: 400px">
+      <div class="card-body">
+        <h4 class="card-title">{{ quote["author"] }}</h4>
+        <p class="card-text">
+          {{ quote["quote"] }}
+        </p>
+        <div class="botones">
+          <button
+            class="btn btn-primary"
+            [disabled]="quote['quote_id'] <= 1"
+            (click)="getQuoteById(quote['quote_id'] - 1)"
+          >
+            <fa-icon [icon]="faArrowLeft" class="arrow"></fa-icon>
+          </button>
+          <button
+            class="btn btn-primary"
+            [disabled]="quote['quote_id'] >= 102"
+            (click)="getQuoteById(quote['quote_id'] + 1)"
+          >
+            <fa-icon [icon]="faArrowRight" class="arrow"></fa-icon>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

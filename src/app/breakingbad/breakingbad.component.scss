@@ -1,0 +1,28 @@
+.container {
+  min-height: 49rem;
+
+  .sistema {
+    font-size: 2rem;
+  }
+
+  .rol {
+    text-align: center;
+  }
+
+  .card {
+    margin-top: 4rem;
+  }
+}
+
+.card-body {
+
+  .botones {
+    display: flex;
+    justify-content: space-between;
+
+    .btn {
+      font-size: 2.5rem;
+      width: 8rem;
+    }
+  }
+}
