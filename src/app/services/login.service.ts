@@ -6,6 +6,8 @@ import { Observable } from 'rxjs';
 export class LoginService {
   public url: string;
 
+  public userLogin: any;
+
   constructor(public _http: HttpClient) {
     this.url = 'https://atid-auth-test.herokuapp.com';
   }
@@ -17,5 +19,13 @@ export class LoginService {
     return this._http.post(this.url + '/api/users/auth', params, {
       headers: headers,
     });
+  }
+
+  guardarUser(user: any) {
+    this.userLogin = user;
+  }
+
+  getUser() {
+    return this.userLogin;
   }
 }

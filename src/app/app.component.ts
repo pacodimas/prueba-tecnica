@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { faCoffee, faHeart } from '@fortawesome/free-solid-svg-icons';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { LoginService } from './services/login.service';
 
@@ -15,6 +16,9 @@ export class AppComponent {
   public user: any;
   public loginUser: any;
 
+  public faCoffee: any;
+  public faHeart: any;
+
   constructor(
     private modalService: NgbModal,
     private loginService: LoginService
@@ -25,6 +29,8 @@ export class AppComponent {
       rol: '',
       password: '',
     };
+    this.faCoffee = faCoffee;
+    this.faHeart = faHeart;
   }
 
   open(content: any) {
@@ -44,15 +50,22 @@ export class AppComponent {
     this.loginService.login(this.user).subscribe(
       (response) => {
         this.loginUser = response;
+        this.guardar(this.loginUser);
         form.reset();
       },
       (error) => {
         this.loginUser = 'incorrecto';
+        this.guardar(this.loginUser);
       }
     );
   }
 
   cerrarSesion() {
     this.loginUser = null;
+    this.guardar(this.loginUser);
+  }
+
+  guardar(user: any) {
+    this.loginService.guardarUser(user);
   }
 }

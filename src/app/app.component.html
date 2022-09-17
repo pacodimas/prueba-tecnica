@@ -45,6 +45,28 @@
         <li class="nav-item">
           <a
             class="nav-link"
+            [routerLink]="'/homeA'"
+            (click)="isMenuCollapsed = true"
+            [routerLinkActive]="['active']"
+          >
+            Bienvenida
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            [routerLink]="'/breaking'"
+            (click)="isMenuCollapsed = true"
+            [routerLinkActive]="['active']"
+          >
+            Breaking Bad
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a
+            class="nav-link"
             [routerLink]="'/reserva'"
             (click)="isMenuCollapsed = true"
             [routerLinkActive]="['active']"
@@ -56,15 +78,14 @@
 
       <ul class="navbar-nav">
         <li class="nav-item" *ngIf="!loginUser">
-          <a
+          <button
             class="nav-link"
             (click)="open(content)"
             (click)="isMenuCollapsed = true"
             [routerLinkActive]="['active']"
-            href="#"
           >
             Iniciar Sesión
-          </a>
+          </button>
         </li>
         <li class="nav-item" *ngIf="loginUser">
           <a class="nav-link" (click)="cerrarSesion()" href="#">
@@ -129,3 +150,11 @@
 </ng-template>
 
 <router-outlet></router-outlet>
+
+<div class="mt-5 p-4 bg-light text-center">
+  <p>Francisco Gerardo Dimas González</p>
+  <p>
+    Creado con <fa-icon [icon]="faHeart"></fa-icon> y
+    <fa-icon [icon]="faCoffee"></fa-icon>
+  </p>
+</div>

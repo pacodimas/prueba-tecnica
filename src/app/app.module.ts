@@ -11,6 +11,8 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { BreakingbadComponent } from './breakingbad/breakingbad.component';
 import { ReservaComponent } from './reserva/reserva.component';
 import { ShortterLinkComponent } from './shortter-link/shortter-link.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { HomeAComponent } from './home-a/home-a.component';
 
 @NgModule({
   declarations: [
@@ -20,8 +22,16 @@ import { ShortterLinkComponent } from './shortter-link/shortter-link.component';
     BreakingbadComponent,
     ReservaComponent,
     ShortterLinkComponent,
+    HomeAComponent,
   ],
-  imports: [BrowserModule, NgbModule, routing, FormsModule, HttpClientModule],
+  imports: [
+    BrowserModule,
+    NgbModule,
+    routing,
+    FormsModule,
+    HttpClientModule,
+    FontAwesomeModule,
+  ],
   providers: [appRoutingProviders],
   bootstrap: [AppComponent],
 })
