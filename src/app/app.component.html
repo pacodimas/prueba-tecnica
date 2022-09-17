@@ -29,7 +29,9 @@
 
       <ul
         class="navbar-nav me-auto"
-        *ngIf="loginUser && loginUser['ok'] == true"
+        *ngIf="
+          loginUser && loginUser['ok'] == true && loginUser['rol'] == 'ROL-A'
+        "
       >
         <li class="nav-item">
           <a
@@ -72,6 +74,35 @@
             [routerLinkActive]="['active']"
           >
             Reserva
+          </a>
+        </li>
+      </ul>
+
+      <ul
+        class="navbar-nav me-auto"
+        *ngIf="
+          loginUser && loginUser['ok'] == true && loginUser['rol'] == 'ROL-B'
+        "
+      >
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            [routerLink]="'/home'"
+            (click)="isMenuCollapsed = true"
+            [routerLinkActive]="['active']"
+          >
+            Home
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            [routerLink]="'/homeA'"
+            (click)="isMenuCollapsed = true"
+            [routerLinkActive]="['active']"
+          >
+            ShortterLink
           </a>
         </li>
       </ul>

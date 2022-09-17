@@ -23,7 +23,7 @@ export class BreakingbadComponent implements OnInit {
     private _breakingBadService: BreakingbadService
   ) {
     this.user = this.loginService.getUser();
-    if (this.loginService.getUser() == null) {
+    if (this.loginService.getUser() == null || this.user['rol'] != 'ROL-A') {
       this._router.navigate(['/']);
     }
     this.faArrowRight = faArrowRight;

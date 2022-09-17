@@ -12,7 +12,7 @@ export class HomeAComponent implements OnInit {
 
   constructor(private loginService: LoginService, private _router: Router) {
     this.user = this.loginService.getUser();
-    if (this.loginService.getUser() == null) {
+    if (this.loginService.getUser() == null || this.user['rol'] != 'ROL-A') {
       this._router.navigate(['/']);
     }
   }

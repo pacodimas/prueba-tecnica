@@ -25,7 +25,7 @@ export class ReservaComponent implements OnInit {
     private _router: Router
   ) {
     this.user = this.loginService.getUser();
-    if (this.loginService.getUser() == null) {
+    if (this.loginService.getUser() == null || this.user['rol'] != 'ROL-A') {
       this._router.navigate(['/']);
     }
     this.fechaActual = new Date();
