@@ -1,3 +1,4 @@
+import { ShortterLinkComponent } from './shortter-link/shortter-link.component';
 import { BreakingbadComponent } from './breakingbad/breakingbad.component';
 import { ModuleWithProviders } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
@@ -12,6 +13,7 @@ const routes: Routes = [
   { path: 'homeA', component: HomeAComponent },
   { path: 'breaking', component: BreakingbadComponent },
   { path: 'reserva', component: ReservaComponent },
+  { path: 'shortterlink', component: ShortterLinkComponent },
 ];
 
 export const appRoutingProviders: any[] = [];

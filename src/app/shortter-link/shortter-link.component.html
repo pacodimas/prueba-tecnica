@@ -1,1 +1,50 @@
-<p>shortter-link works!</p>
+<div class="container mt-5">
+  <div class="mt-4 p-5 rounded">
+    <h1 class="mb-3">ShortterLink</h1>
+    <p>
+      Por favor introduce un link y al darle clic al botón se debe convertir esa
+      url en una url comprimida o más corta.
+    </p>
+  </div>
+
+  <div class="formula">
+    <form #formLinks="ngForm" class="row g-3" (ngSubmit)="onsubmit(formLinks)">
+      <div class="mb-3 mt-3">
+        <label for="url" class="form-label">url:</label>
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Introduzca su url"
+          name="url"
+          #url="ngModel"
+          [(ngModel)]="link.url"
+          required
+        />
+      </div>
+      <button type="submit" class="btn btn-primary">Acortar</button>
+    </form>
+  </div>
+
+  <h2 class="mb-5 mt-5">Links</h2>
+
+  <table class="table table-hover table-striped table-bordered">
+    <thead>
+      <tr>
+        <th scope="col" class="text-center">Link</th>
+        <th scope="col" class="text-center">Link acortado</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let original of original_link; let indice = index">
+        <td class="text-center">
+          <a href="{{ original }}" target="_blank">{{ original }}</a>
+        </td>
+        <td class="text-center">
+          <a href="{{ full_short_link[indice] }}" target="_blank">{{
+            full_short_link[indice]
+          }}</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
